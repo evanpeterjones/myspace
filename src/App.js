@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import 'aframe';
 
 function RainDrop (props) {
     return (
-            <a-sphere position={props.position} radius=".1" color="#8CDFE8"></a-sphere>
+        <a-sphere position={props.position} radius=".1" color="#8CDFE8"></a-sphere>
     );
 }
 
