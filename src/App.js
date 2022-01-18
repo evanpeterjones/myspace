@@ -29,12 +29,12 @@ function App() {
     return (
         <div className="App">
             <a-scene>
-        <a-asset id="drop" src="raindrop.obj"></a-asset>
-            <a-asset id="rain" src="rain.obj"></a-asset>
-            <a-obj-model src="#rain" position="-2 -10 -5"></a-obj-model>
-            {raindrops}
-        </a-scene>
-            </div>
+                <a-asset id="drop" src="raindrop.obj"></a-asset>
+                <a-asset id="rain" src="rain.obj"></a-asset>
+                <a-obj-model src="#rain" position="-2 -10 -5"></a-obj-model>
+                {raindrops}
+            </a-scene>
+        </div>
     );
 }
 
