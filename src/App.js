@@ -1,9 +1,23 @@
+import { useState, useEffect } from 'react';
 import './App.css';
 import 'aframe';
 
-function RainDrop (props) {
+function RainDrop (start) {
+    const [position, setPosition] = useState(start);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setPosition({x: position.x, y: position.y-2, z: position.z});
+        }, 1);
+    });
+
     return (
-        <a-sphere position={props.position} radius=".1" color="#8CDFE8"></a-sphere>
+        <a-sphere 
+            position={position.x.toString() + " " +
+                      position.y.toString() +  " " +
+                      position.z.toString()}
+            radius=".1"
+            color="#8CDFE8"></a-sphere>
     );
 }
 
@@ -15,17 +29,19 @@ function App() {
     let raindrops = [];
 
     for (var i = 0; i < 400; i++) {
-        raindrops.push(<RainDrop position={(random(40)-20).toString() + " " +
-                                           (random(40)-20).toString() +  " " + 
-                                           (random(40)-20).toString()}/>);
+        
+        let startPosition = { 
+            x: (random(40)-20).toString(),
+            y: (random(40)-20).toString(),
+            z: (random(40)-20).toString()
+        };
+
+        raindrops.push(new RainDrop(startPosition));
     }
 
     return (
         <div className="App">
             <a-scene>
-                <a-asset id="drop" src="raindrop.obj"></a-asset>
-                <a-asset id="rain" src="rain.obj"></a-asset>
-                <a-obj-model src="#rain" position="-2 -10 -5"></a-obj-model>
                 {raindrops}
             </a-scene>
         </div>
