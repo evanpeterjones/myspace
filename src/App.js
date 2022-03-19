@@ -21,8 +21,14 @@ function RainDrop (start) {
     );
 }
 
-function random(x) {
-    return Math.random() * x;
+function random(x, y) {
+    let newX = Math.random(x);
+
+    if(typeof y !== "undefined") {
+        return newX - y;
+    }
+
+    return newX;
 }
 
 function App() {
