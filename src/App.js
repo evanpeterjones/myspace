@@ -31,19 +31,24 @@ function random(x, y) {
     return newX;
 }
 
-function App() {
-    let raindrops = [];
-
-    for (var i = 0; i < 400; i++) {
-        
+function makeItRain(many=400) {
+    let drops = [];
+    
+    for (var i = 0; i < many; i++) {
         let startPosition = { 
             x: (random(40)-20).toString(),
             y: (random(40)-20).toString(),
             z: (random(40)-20).toString()
         };
 
-        raindrops.push(new RainDrop(startPosition));
+        drops.push(new RainDrop(startPosition));
     }
+
+    return drops;
+}
+
+function App() {
+    let raindrops = makeItRain();
 
     return (
         <div className="App">
